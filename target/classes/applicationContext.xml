@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<!-- com.javalec.ex.Cats클래스는 cats라는 id를 지정해서 객체(bean)을 생성 -->
+	<!-- 이 객체(bean)의 이름(id)는 cats이다. cats는  com.javalec.ex패키지에 있는 Cats를 말한다.-->
+	<bean id="cats" class="com.javalec.ex.Cats"></bean>
+	
+	<!-- MyCats클래스를 myCats라는 id를 지정해서 객체(bean) 생성 -->
+	<bean id="myCats" class="com.javalec.ex.MyCats">
+	
+		<!-- MyCats라는 클래스에 있는 필드들의 값을 설정 -->
+		<!-- 첫 번째 property(필드) -->
+		<property name="cats">
+			<!-- 이 property는 위에서 생성한 bean(객체)인 cats를 참조한다. -->
+			<ref bean="cats"></ref>
+		</property>
+
+		<!-- MyCats의 필드의 이름과 값 설정 -->
+		<property name="firstCatName" value="호랑" />
+		<property name="secondCatName" value="나비" />
+		<property name="firstCatAge" value="2" />
+		<property name="secondCatAge" value="4" />
+ 	</bean>
+ 	
+ 
+</beans>

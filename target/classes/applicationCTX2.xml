@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 생성자를 이용한 출력  -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="student1" class="com.javalec.ex.StudentEX1">
+		<constructor-arg value="홍길동" />
+		<constructor-arg value="18" />
+		<constructor-arg value="5" />
+		<constructor-arg value="2" />
+	</bean>
+	
+	
+	<bean id="student2" class="com.javalec.ex.StudentEX1">
+		<constructor-arg value="김아무개" />
+		<constructor-arg value="19" />
+		<constructor-arg value="6" />
+		<constructor-arg value="5" />
+	</bean>
+	
+	
+	<!-- 
+		StudentMain class file 스프링 컨테이너에서 컴포넌트를 가져올 때
+		StudentInfo info = ctx.getBean("studentInfo", StudentInfo.class); 
+		아래 bean id와 getBean 같아야 한다.  !! <bean id="studentInfo" == ctx.getBean("studentInfo"		
+	-->
+	
+	<bean id="studentInfo" class="com.javalec.ex.StudentEx1Info">
+		<constructor-arg>
+			<!-- student1 reference -->
+			<ref bean="student1" />
+		</constructor-arg>
+	</bean>
+</beans>
